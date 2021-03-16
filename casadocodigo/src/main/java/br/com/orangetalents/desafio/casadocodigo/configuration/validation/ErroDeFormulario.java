@@ -1,7 +1,6 @@
 package br.com.orangetalents.desafio.casadocodigo.configuration.validation;
 
 public class ErroDeFormulario {
-
 	
 	private String campo;
 	private String mensagem;

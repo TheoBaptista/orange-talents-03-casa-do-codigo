@@ -37,6 +37,10 @@ public class Autor {
 
 	public String getDescricao() {
 		return descricao;
+	}	
+
+	public String getEmail() {
+		return email;
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.orangetalents.desafio.casadocodigo.controller.dto.AutorForm;
+import br.com.orangetalents.desafio.casadocodigo.controller.dto.AutorResponse;
 import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 import br.com.orangetalents.desafio.casadocodigo.repository.AutorRepository;
 
@@ -23,9 +24,9 @@ public class AutorController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Autor> cadastraAutor(@Valid @RequestBody AutorForm autorForm){		
+	public ResponseEntity<AutorResponse> cadastraAutor(@Valid @RequestBody AutorForm autorForm){		
 		Autor novoAutor = repository.save(autorForm.toAutor());
-		return ResponseEntity.ok(novoAutor);			
+		return ResponseEntity.ok(AutorResponse.convert(novoAutor));			
 	}
 	
 }

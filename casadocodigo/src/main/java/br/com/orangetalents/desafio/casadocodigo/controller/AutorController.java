@@ -1,5 +1,7 @@
 package br.com.orangetalents.desafio.casadocodigo.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,12 +23,9 @@ public class AutorController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Autor> cadastraAutor(@RequestBody AutorForm autorForm){
-		
+	public ResponseEntity<Autor> cadastraAutor(@Valid @RequestBody AutorForm autorForm){		
 		Autor novoAutor = repository.save(autorForm.toAutor());
-		
-		return ResponseEntity.ok(novoAutor);
-			
+		return ResponseEntity.ok(novoAutor);			
 	}
 	
 }

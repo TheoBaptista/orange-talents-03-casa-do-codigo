@@ -9,9 +9,8 @@ import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 
 public class AutorForm {
 
-	
 	private @NotBlank String nome;	
-	private @Email @NotBlank String email;	
+	private @NotBlank @Email String email;	
 	private @NotBlank @Size(max = 400) String descricao;	
 	
 	public AutorForm(@NotBlank String nome,@Email @NotBlank String email,@NotBlank @Size(max = 400) String descricao) {

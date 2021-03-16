@@ -6,37 +6,37 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import br.com.orangetalents.desafio.casadocodigo.controller.dto.AutorForm;
-import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
-import br.com.orangetalents.desafio.casadocodigo.repository.AutorRepository;
+import br.com.orangetalents.desafio.casadocodigo.controller.dto.CategoriaForm;
+import br.com.orangetalents.desafio.casadocodigo.domain.Categoria;
+import br.com.orangetalents.desafio.casadocodigo.repository.CategoriaRepository;
 
 @Component
 public class ProibeNomeDuplicadoCategoriaValidator implements Validator {
 
 	
-	private AutorRepository repository;	
+	private CategoriaRepository repository;	
 	
-	public ProibeNomeDuplicadoCategoriaValidator(AutorRepository repository) {
+	public ProibeNomeDuplicadoCategoriaValidator(CategoriaRepository repository) {
 		this.repository = repository;
 	}
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		// especificar o tipo de parametro que queremos aplicar essa validacao
-		return AutorForm.class.isAssignableFrom(clazz); // essa classe passada pode ser igual ou filha
+		
+		return CategoriaForm.class.isAssignableFrom(clazz); 
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		if(errors.hasErrors()) { // caso haja algum erro de validacao do spring será retornado. Validacoes padroes antes da implementacao propria
+		if(errors.hasErrors()) { 
 			return;
 		}
 		
-		AutorForm autorForm = (AutorForm) target; // target é o formulario em questao que sera validado
-		Optional<Autor> possivelAutor = repository.findByEmail(autorForm.getEmail());
+		CategoriaForm categoriaForm = (CategoriaForm) target; 
+		Optional<Categoria> possivelCategoria = repository.findByNome(categoriaForm.getNome());
 		
-		if(possivelAutor.isPresent()) {
-			errors.rejectValue("email", null/* aqui eh para definir errorCode com mensagens localizadas etc*/,"O e-mail "+autorForm.getEmail()+" já esta sendo usado! " /*Mensagem padrao*/);
+		if(possivelCategoria.isPresent()) {
+			errors.rejectValue("nome", null,"A categoria "+categoriaForm.getNome()+" já existe!");
 		}
 		
 	}

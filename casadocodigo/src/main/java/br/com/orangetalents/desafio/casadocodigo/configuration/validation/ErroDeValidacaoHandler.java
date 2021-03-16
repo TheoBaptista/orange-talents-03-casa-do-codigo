@@ -15,10 +15,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class ErroDeValidacaoHandler {
-//	 a classe que vai tratar os erros de validação.
-//	O Spring tem uma solução para esse tipo de cenário. A solução é criar um interceptador. Toda vez que acontecer uma exception, em qualquer método,
-//	o Spring automaticamente vai chamar esse interceptador,
-//	onde fazemos o tratamento apropriado. Esse interceptador é chamado de controller advice.
 	
 	@Autowired
 	private MessageSource messageSource;	

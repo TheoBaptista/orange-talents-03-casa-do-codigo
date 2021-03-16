@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 
 import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 
+
 public class AutorForm {
 
 	
@@ -19,6 +20,10 @@ public class AutorForm {
 		this.descricao = descricao;		
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
 	public Autor toAutor() {
 		return new Autor(this.nome, this.email, this.descricao);
 	}

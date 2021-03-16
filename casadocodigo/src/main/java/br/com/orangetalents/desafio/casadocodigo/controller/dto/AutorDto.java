@@ -2,13 +2,13 @@ package br.com.orangetalents.desafio.casadocodigo.controller.dto;
 
 import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 
-public class AutorResponse {
+public class AutorDto {
 
 	private String nome;
 	private String email;
 	private String descricao;
 	
-	public AutorResponse(String nome, String email, String descricao) {
+	public AutorDto(String nome, String email, String descricao) {
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
@@ -26,8 +26,8 @@ public class AutorResponse {
 		return descricao;
 	}
 
-	public static AutorResponse convert(Autor novoAutor) {
-		return new AutorResponse(novoAutor.getNome(),novoAutor.getEmail(),novoAutor.getDescricao());
+	public static AutorDto buildAutor(Autor novoAutor) {
+		return new AutorDto(novoAutor.getNome(),novoAutor.getEmail(),novoAutor.getDescricao());
 	}
 	
 	

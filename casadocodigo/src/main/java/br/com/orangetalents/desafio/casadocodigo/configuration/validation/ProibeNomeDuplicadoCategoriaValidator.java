@@ -11,12 +11,12 @@ import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 import br.com.orangetalents.desafio.casadocodigo.repository.AutorRepository;
 
 @Component
-public class ProibeEmailDuplicadoAutorValidator implements Validator {
+public class ProibeNomeDuplicadoCategoriaValidator implements Validator {
 
 	
 	private AutorRepository repository;	
 	
-	public ProibeEmailDuplicadoAutorValidator(AutorRepository repository) {
+	public ProibeNomeDuplicadoCategoriaValidator(AutorRepository repository) {
 		this.repository = repository;
 	}
 

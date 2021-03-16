@@ -25,7 +25,7 @@ public class AutorController {
 	private final ProibeEmailDuplicadoAutorValidator proibeEmailDuplicadoAutorValidator; //validadores costumizados do spring
 	
 	@InitBinder // utilizado sempre antes de executar os metodos do controller para executar configurações adicionais
-	public void init(WebDataBinder binder) {
+	public void init(WebDataBinder binder) {		
 		binder.addValidators(proibeEmailDuplicadoAutorValidator);
 	}
 	

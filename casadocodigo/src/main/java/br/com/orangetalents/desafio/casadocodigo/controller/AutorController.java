@@ -1,5 +1,6 @@
 package br.com.orangetalents.desafio.casadocodigo.controller;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ public class AutorController {
 	}
 
 	@PostMapping
+	@Transactional
 	public ResponseEntity<AutorResponse> cadastraAutor(@Valid @RequestBody AutorForm autorForm){		
 		Autor novoAutor = repository.save(autorForm.toAutor());
 		return ResponseEntity.ok(AutorResponse.convert(novoAutor));			

@@ -16,7 +16,7 @@ public class Categoria {
 	public Categoria() {
 	}
 	
-	public Categoria(@NotBlank String nome) {
+	public Categoria(@NotBlank String nome) {		
 		this.nome = nome;
 	}
 	public String getNome() {

@@ -4,13 +4,14 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.orangetalents.desafio.casadocodigo.configuration.validation.UniqueValueContraint;
 import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 
 
 public class AutorForm {
 
 	private @NotBlank String nome;	
-	private @NotBlank @Email String email;	
+	private @NotBlank @Email @UniqueValueContraint(classeDeComparacao = Autor.class,nomeDoCampo = "email") String email;	
 	private @NotBlank @Size(max = 400) String descricao;	
 	
 	public AutorForm(@NotBlank String nome,@Email @NotBlank String email,@NotBlank @Size(max = 400) String descricao) {

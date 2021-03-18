@@ -33,7 +33,7 @@ public class ProibeNomeDuplicadoCategoriaValidator implements Validator {
 		}
 		
 		CategoriaForm categoriaForm = (CategoriaForm) target; 
-		Optional<Categoria> possivelCategoria = repository.findByNome(categoriaForm.getNome());
+		Optional<Categoria> possivelCategoria = repository.findOptionalByNome(categoriaForm.getNome());
 		
 		if(possivelCategoria.isPresent()) {
 			errors.rejectValue("nome", null,"A categoria "+categoriaForm.getNome()+" já existe!");

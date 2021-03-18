@@ -38,7 +38,10 @@ public class AutorController {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity<AutorDto> cadastraAutor(@Valid @RequestBody AutorForm autorForm){		
+	public ResponseEntity<AutorDto> cadastraAutor(@Valid @RequestBody AutorForm autorForm){	
+		
+		System.out.println(autorForm.getEmail()+ autorForm.getNome() + autorForm.getDescricao());
+		
 		Autor novoAutor = repository.save(autorForm.toAutor());
 		return ResponseEntity.ok(AutorDto.buildAutor(novoAutor));			
 	}

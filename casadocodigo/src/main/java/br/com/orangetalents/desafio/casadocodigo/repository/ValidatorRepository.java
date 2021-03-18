@@ -17,7 +17,7 @@ public class ValidatorRepository {
 		this.em = em;
 	}
 	
-	public Boolean existEquals(String field, String clazzName, Object value) {		
+	public Boolean existEquals(String field, String clazzName, String value) {		
 		String query = "SELECT 1 FROM "+clazzName+" WHERE "+field+" =:pvalue";  
 		List<?> resultList = em.createQuery(query).setParameter("pvalue", value).getResultList();		
 		return resultList.isEmpty();

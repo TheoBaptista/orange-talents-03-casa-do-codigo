@@ -30,7 +30,7 @@ public class UniqueValueValidator implements ConstraintValidator<UniqueValueCons
 //		List<?> resultList = em.createQuery(query).setParameter("pvalue", value).getResultList();
 		// ver se posso encapsular essa parte!!!		
 		
-		return ValidatorRepository.build(em).existEquals(nomeDoCampo, classeDeComparacao.getName() , value); // vereficar se isso esta correto ou eh um verdadeiro improvisso!
+		return ValidatorRepository.build(em).existEquals(nomeDoCampo, classeDeComparacao.getName() , value.toString().toUpperCase()); // vereficar se isso esta correto ou eh um verdadeiro improvisso!
 	}
 
 	

@@ -8,7 +8,9 @@ import br.com.orangetalents.desafio.casadocodigo.domain.Categoria;
 
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
-	Optional<Categoria> findByNome(String nome);
+	Optional<Categoria> findOptionalByNome(String nome);
+	
+	Categoria findByNome(String nome);
 
 	
 }

@@ -13,8 +13,8 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
-import br.com.orangetalents.desafio.casadocodigo.configuration.validation.OnlyCreateIfExist;
-import br.com.orangetalents.desafio.casadocodigo.configuration.validation.UniqueValueConstraint;
+import br.com.orangetalents.desafio.casadocodigo.configuration.validation.annotation.OnlyCreateIfExist;
+import br.com.orangetalents.desafio.casadocodigo.configuration.validation.annotation.UniqueValueConstraint;
 import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 import br.com.orangetalents.desafio.casadocodigo.domain.Categoria;
 import br.com.orangetalents.desafio.casadocodigo.domain.Livro;

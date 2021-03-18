@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import br.com.orangetalents.desafio.casadocodigo.configuration.validation.annotation.UniqueValueConstraint;
 import br.com.orangetalents.desafio.casadocodigo.repository.ValidatorRepository;
 
 public class UniqueValueValidator implements ConstraintValidator<UniqueValueConstraint, Object > {

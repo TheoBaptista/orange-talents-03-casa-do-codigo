@@ -4,7 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import br.com.orangetalents.desafio.casadocodigo.configuration.validation.UniqueValueConstraint;
+import br.com.orangetalents.desafio.casadocodigo.configuration.validation.annotation.UniqueValueConstraint;
 import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 
 

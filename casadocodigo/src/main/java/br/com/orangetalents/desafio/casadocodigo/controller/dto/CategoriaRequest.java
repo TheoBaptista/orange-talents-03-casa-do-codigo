@@ -3,7 +3,7 @@ package br.com.orangetalents.desafio.casadocodigo.controller.dto;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.orangetalents.desafio.casadocodigo.configuration.validation.UniqueValueConstraint;
+import br.com.orangetalents.desafio.casadocodigo.configuration.validation.annotation.UniqueValueConstraint;
 import br.com.orangetalents.desafio.casadocodigo.domain.Categoria;
 
 public class CategoriaRequest {

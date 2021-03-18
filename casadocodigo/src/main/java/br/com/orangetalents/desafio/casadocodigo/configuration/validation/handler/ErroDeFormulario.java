@@ -1,4 +1,4 @@
-package br.com.orangetalents.desafio.casadocodigo.configuration.validation;
+package br.com.orangetalents.desafio.casadocodigo.configuration.validation.handler;
 
 public class ErroDeFormulario {
 	

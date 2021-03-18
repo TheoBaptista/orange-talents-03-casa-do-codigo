@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import br.com.orangetalents.desafio.casadocodigo.configuration.validation.annotation.OnlyCreateIfExist;
 import br.com.orangetalents.desafio.casadocodigo.repository.ValidatorRepository;
 
 public class OnlyCreateIfExistValidator implements ConstraintValidator<OnlyCreateIfExist, Object> {

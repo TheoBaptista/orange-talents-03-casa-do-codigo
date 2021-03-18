@@ -11,7 +11,7 @@ import javax.validation.Payload;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy=UniqueValueValidator.class)
-public @interface UniqueValueContraint {
+public @interface UniqueValueConstraint {
 
 	Class<?> classeDeComparacao();
 	

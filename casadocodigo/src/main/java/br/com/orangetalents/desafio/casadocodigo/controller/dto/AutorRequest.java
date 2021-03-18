@@ -8,17 +8,17 @@ import br.com.orangetalents.desafio.casadocodigo.configuration.validation.Unique
 import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 
 
-public class AutorForm {
+public class AutorRequest {
 
 	private @NotBlank String nome;	
 	private @NotBlank @Email @UniqueValueConstraint(classeDeComparacao = Autor.class,nomeDoCampo = "email") String email;	
 	private @NotBlank @Size(max = 400) String descricao;	
 
 	@Deprecated
-	public AutorForm() {
+	public AutorRequest() {
 	}
 	
-	public AutorForm(@NotBlank String nome,@Email @NotBlank String email,@NotBlank @Size(max = 400) String descricao) {
+	public AutorRequest(@NotBlank String nome,@Email @NotBlank String email,@NotBlank @Size(max = 400) String descricao) {
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;		

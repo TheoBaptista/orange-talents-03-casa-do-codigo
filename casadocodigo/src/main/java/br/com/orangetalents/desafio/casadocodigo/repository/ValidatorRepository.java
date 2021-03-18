@@ -23,7 +23,6 @@ public class ValidatorRepository {
 		return resultList.isEmpty();
 	}
 	
-	
 	public static ValidatorRepository build(EntityManager em){
 		return new ValidatorRepository(em);
 	}

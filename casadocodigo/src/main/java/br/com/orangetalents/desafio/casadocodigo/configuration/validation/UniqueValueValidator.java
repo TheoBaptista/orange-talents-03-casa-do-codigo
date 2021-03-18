@@ -24,6 +24,10 @@ public class UniqueValueValidator implements ConstraintValidator<UniqueValueCons
 	
 	@Override
 	public boolean isValid(Object value, ConstraintValidatorContext context) {
+		System.out.println(value);
+		if(value == null) {
+			return true;
+		}
 		//String letraInicialDaclasse = classeDeComparacao.toString().substring(0, 1).toLowerCase();// o retorno eh um fqn da classe. ate é possivel mas sem sentido		
 		
 //		String query = "SELECT 1 FROM "+classeDeComparacao.getName()+" WHERE "+nomeDoCampo+" =:pvalue";  

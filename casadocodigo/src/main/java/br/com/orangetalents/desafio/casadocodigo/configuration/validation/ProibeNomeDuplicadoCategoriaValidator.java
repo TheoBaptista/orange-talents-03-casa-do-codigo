@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import br.com.orangetalents.desafio.casadocodigo.controller.dto.CategoriaForm;
+import br.com.orangetalents.desafio.casadocodigo.controller.dto.CategoriaRequest;
 import br.com.orangetalents.desafio.casadocodigo.domain.Categoria;
 import br.com.orangetalents.desafio.casadocodigo.repository.CategoriaRepository;
 
@@ -23,7 +23,7 @@ public class ProibeNomeDuplicadoCategoriaValidator implements Validator {
 	@Override
 	public boolean supports(Class<?> clazz) {
 		
-		return CategoriaForm.class.isAssignableFrom(clazz); 
+		return CategoriaRequest.class.isAssignableFrom(clazz); 
 	}
 
 	@Override
@@ -32,11 +32,11 @@ public class ProibeNomeDuplicadoCategoriaValidator implements Validator {
 			return;
 		}
 		
-		CategoriaForm categoriaForm = (CategoriaForm) target; 
-		Optional<Categoria> possivelCategoria = repository.findOptionalByNome(categoriaForm.getNome());
+		CategoriaRequest categoriaRequest = (CategoriaRequest) target; 
+		Optional<Categoria> possivelCategoria = repository.findOptionalByNome(categoriaRequest.getNome());
 		
 		if(possivelCategoria.isPresent()) {
-			errors.rejectValue("nome", null,"A categoria "+categoriaForm.getNome()+" já existe!");
+			errors.rejectValue("nome", null,"A categoria "+categoriaRequest.getNome()+" já existe!");
 		}
 		
 	}

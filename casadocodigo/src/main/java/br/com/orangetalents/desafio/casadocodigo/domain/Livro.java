@@ -9,33 +9,34 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Future;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Livro {
 
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 	private @NotBlank String titulo;
-	private @NotBlank @Max(value = 500) String resumo;
+	private @NotBlank @Size(max = 500) String resumo;
 	private String sumario;
-	private @NotBlank @Min(value = 20) BigDecimal preco;
-	private @NotBlank @Min(value = 100) Integer numeroDePaginas;
+	private @NotNull @Min(20) BigDecimal preco;
+	private @NotNull @Min(100) int numeroDePaginas;
 	private @NotBlank String isbn;
-	private @NotBlank @Future LocalDate dataDePublicacao;
-	private @NotBlank @ManyToOne Categoria categoriaDoLivro;
-	private @NotBlank @ManyToOne Autor autorDoLivro;
+	private @NotNull @Future LocalDate dataDePublicacao;
+	private @NotNull @ManyToOne Categoria categoriaDoLivro;
+	private @NotNull @ManyToOne Autor autorDoLivro;
 
 	@Deprecated
 	public Livro() {
 	}
 	
-	public Livro(@NotBlank String titulo, @NotBlank @Max(500) String resumo, String sumario,
-			@NotBlank @Min(20) BigDecimal preco, @NotBlank @Min(100) Integer numeroDePaginas, @NotBlank String isbn,
-			@NotBlank @Future @NotBlank @Future LocalDate dataDePublicacao2, @NotBlank Categoria categoriaDoLivro,
-			@NotBlank Autor autorDoLivro) {
-		this.titulo = titulo.toUpperCase();
+	public Livro(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, String sumario,
+			@NotNull @Min(20) BigDecimal preco, @NotNull @Min(100) Integer numeroDePaginas, @NotBlank String isbn,
+			@Future @NotNull @Future LocalDate dataDePublicacao2, @NotNull Categoria categoriaDoLivro,
+			@NotNull Autor autorDoLivro) {
+		this.titulo = titulo;
 		this.resumo = resumo;
 		this.sumario = sumario;
 		this.preco = preco;

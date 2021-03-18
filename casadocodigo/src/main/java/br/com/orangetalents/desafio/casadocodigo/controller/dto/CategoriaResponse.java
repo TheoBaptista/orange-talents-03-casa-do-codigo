@@ -2,11 +2,11 @@ package br.com.orangetalents.desafio.casadocodigo.controller.dto;
 
 import br.com.orangetalents.desafio.casadocodigo.domain.Categoria;
 
-public class CategoriaDto {
+public class CategoriaResponse {
 
 	private String nome;
 
-	public CategoriaDto(String nome) {
+	public CategoriaResponse(String nome) {
 		this.nome = nome;
 	}
 
@@ -14,8 +14,8 @@ public class CategoriaDto {
 		return nome;
 	}
 
-	public static CategoriaDto build(Categoria categoria) {
-		return new CategoriaDto(categoria.getNome());
+	public static CategoriaResponse build(Categoria categoria) {
+		return new CategoriaResponse(categoria.getNome());
 	}
 		
 	

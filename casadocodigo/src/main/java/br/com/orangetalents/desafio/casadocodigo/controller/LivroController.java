@@ -1,13 +1,15 @@
 package br.com.orangetalents.desafio.casadocodigo.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.orangetalents.desafio.casadocodigo.controller.dto.LivroDto;
-import br.com.orangetalents.desafio.casadocodigo.controller.dto.LivroForm;
+import br.com.orangetalents.desafio.casadocodigo.controller.dto.LivroResponse;
+import br.com.orangetalents.desafio.casadocodigo.controller.dto.LivroRequest;
 import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 import br.com.orangetalents.desafio.casadocodigo.domain.Categoria;
 import br.com.orangetalents.desafio.casadocodigo.domain.Livro;
@@ -16,7 +18,7 @@ import br.com.orangetalents.desafio.casadocodigo.repository.CategoriaRepository;
 import br.com.orangetalents.desafio.casadocodigo.repository.LivroRepository;
 
 @RestController
-@RequestMapping("/livros")
+@RequestMapping("api/livros")
 public class LivroController {
 
 	private final LivroRepository livroRepository;
@@ -31,17 +33,17 @@ public class LivroController {
 	}
 
 	@PostMapping
-	public ResponseEntity<LivroDto> cadastraLivro(@RequestBody LivroForm novoLivro) {
+	public ResponseEntity<LivroResponse> cadastraLivro(@Valid @RequestBody LivroRequest novoLivro) {
 
-		System.out.println();
-		
-		Categoria Categoria = categoriaRepository.findByNome(novoLivro.getCategoriaDoLivro());
-		Autor autor = autorRepository.findByNome(novoLivro.getAutorDoLivro());
+	
+		Categoria categoria = categoriaRepository.findByNome(novoLivro.getNomeCategoria());
+		Autor autor = autorRepository.findByNome(novoLivro.getNomeAutor());
 
-		Livro livro = novoLivro.toLivro(autor, Categoria);
+	
+		Livro livro = novoLivro.toLivro(autor, categoria);
 		livroRepository.save(livro);
 		
-		return ResponseEntity.ok().build();
+		return ResponseEntity.ok(LivroResponse.build(livro));
 	}
 
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import br.com.orangetalents.desafio.casadocodigo.controller.dto.AutorForm;
+import br.com.orangetalents.desafio.casadocodigo.controller.dto.AutorRequest;
 import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 import br.com.orangetalents.desafio.casadocodigo.repository.AutorRepository;
 
@@ -23,7 +23,7 @@ public class ProibeEmailDuplicadoAutorValidator implements Validator {
 	@Override
 	public boolean supports(Class<?> clazz) {
 		// especificar o tipo de parametro que queremos aplicar essa validacao
-		return AutorForm.class.isAssignableFrom(clazz); // essa classe passada pode ser igual ou filha
+		return AutorRequest.class.isAssignableFrom(clazz); // essa classe passada pode ser igual ou filha
 	}
 
 	@Override
@@ -32,11 +32,11 @@ public class ProibeEmailDuplicadoAutorValidator implements Validator {
 			return;
 		}
 		
-		AutorForm autorForm = (AutorForm) target; // target é o formulario em questao que sera validado
-		Optional<Autor> possivelAutor = repository.findByEmail(autorForm.getEmail());
+		AutorRequest autorRequest = (AutorRequest) target; // target é o formulario em questao que sera validado
+		Optional<Autor> possivelAutor = repository.findByEmail(autorRequest.getEmail());
 		
 		if(possivelAutor.isPresent()) {
-			errors.rejectValue("email", null/* aqui eh para definir errorCode com mensagens localizadas etc*/,"O e-mail "+autorForm.getEmail()+" já esta sendo usado! " /*Mensagem padrao*/);
+			errors.rejectValue("email", null/* aqui eh para definir errorCode com mensagens localizadas etc*/,"O e-mail "+autorRequest.getEmail()+" já esta sendo usado! " /*Mensagem padrao*/);
 		}
 		
 	}

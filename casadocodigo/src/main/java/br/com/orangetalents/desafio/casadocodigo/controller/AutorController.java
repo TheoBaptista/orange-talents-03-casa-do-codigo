@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.orangetalents.desafio.casadocodigo.controller.dto.AutorDto;
-import br.com.orangetalents.desafio.casadocodigo.controller.dto.AutorForm;
+import br.com.orangetalents.desafio.casadocodigo.controller.dto.AutorResponse;
+import br.com.orangetalents.desafio.casadocodigo.controller.dto.AutorRequest;
 import br.com.orangetalents.desafio.casadocodigo.domain.Autor;
 import br.com.orangetalents.desafio.casadocodigo.repository.AutorRepository;
 
 @RestController
-@RequestMapping("/autores")
+@RequestMapping("api/autores")
 public class AutorController {
 
 	private final AutorRepository repository;
@@ -38,12 +38,12 @@ public class AutorController {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity<AutorDto> cadastraAutor(@Valid @RequestBody AutorForm autorForm){	
+	public ResponseEntity<AutorResponse> cadastraAutor(@Valid @RequestBody AutorRequest autorRequest){	
 		
-		System.out.println(autorForm.getEmail()+ autorForm.getNome() + autorForm.getDescricao());
+		System.out.println(autorRequest.getEmail()+ autorRequest.getNome() + autorRequest.getDescricao());
 		
-		Autor novoAutor = repository.save(autorForm.toAutor());
-		return ResponseEntity.ok(AutorDto.buildAutor(novoAutor));			
+		Autor novoAutor = repository.save(autorRequest.toAutor());
+		return ResponseEntity.ok(AutorResponse.buildAutor(novoAutor));			
 	}
 	
 }

@@ -6,16 +6,16 @@ import javax.validation.constraints.NotBlank;
 import br.com.orangetalents.desafio.casadocodigo.configuration.validation.UniqueValueConstraint;
 import br.com.orangetalents.desafio.casadocodigo.domain.Categoria;
 
-public class CategoriaForm {
+public class CategoriaRequest {
 
 	private @NotBlank @UniqueValueConstraint(classeDeComparacao = Categoria.class,nomeDoCampo = "nome") String nome;
 		
-	public CategoriaForm(@NotBlank String nome) {
+	public CategoriaRequest(@NotBlank String nome) {
 		this.nome = nome;
 	}
 
 	@Deprecated
-	public CategoriaForm() {
+	public CategoriaRequest() {
 	}
 	
 	public String getNome() {

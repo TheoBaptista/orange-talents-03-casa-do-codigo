@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.orangetalents.desafio.casadocodigo.controller.dto.CategoriaDto;
-import br.com.orangetalents.desafio.casadocodigo.controller.dto.CategoriaForm;
+import br.com.orangetalents.desafio.casadocodigo.controller.dto.CategoriaResponse;
+import br.com.orangetalents.desafio.casadocodigo.controller.dto.CategoriaRequest;
 import br.com.orangetalents.desafio.casadocodigo.domain.Categoria;
 import br.com.orangetalents.desafio.casadocodigo.repository.CategoriaRepository;
 
 @RestController
-@RequestMapping("/categorias")
+@RequestMapping("api/categorias")
 public class CategoriaController {
 
 	private final CategoriaRepository repository;
@@ -26,8 +26,8 @@ public class CategoriaController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> cadastraCategoria(@RequestBody @Valid CategoriaForm formCategoria){
+	public ResponseEntity<?> cadastraCategoria(@RequestBody @Valid CategoriaRequest formCategoria){
 		Categoria categoria = repository.save(formCategoria.toCategoria());
-		return ResponseEntity.ok(CategoriaDto.build(categoria));
+		return ResponseEntity.ok(CategoriaResponse.build(categoria));
 				}	
 }

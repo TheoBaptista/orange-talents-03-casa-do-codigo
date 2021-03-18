@@ -44,8 +44,8 @@ public class LivroRequest {
 		this.preco = preco;
 		this.numeroDePaginas = numeroDePaginas;
 		this.isbn = isbn;		
-		this.nomeCategoria = nomeCategoria;// Se tirar não vai achar
-		this.nomeAutor = nomeAutor; // Se tirar não vai achar 
+		this.nomeCategoria = nomeCategoria;
+		this.nomeAutor = nomeAutor;  
 	}
 	
 	
@@ -55,11 +55,11 @@ public class LivroRequest {
 	}
 
 	public @NotBlank String getNomeCategoria() {
-		return nomeCategoria.toUpperCase();
+		return nomeCategoria;
 	}
 
 	public @NotBlank String getNomeAutor() {
-		return nomeAutor.toUpperCase();
+		return nomeAutor;
 	}	
 
 	public String getTitulo() {

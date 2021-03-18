@@ -36,8 +36,8 @@ public class LivroController {
 	public ResponseEntity<LivroResponse> cadastraLivro(@Valid @RequestBody LivroRequest novoLivro) {
 
 	
-		Categoria categoria = categoriaRepository.findByNome(novoLivro.getNomeCategoria());
-		Autor autor = autorRepository.findByNome(novoLivro.getNomeAutor());
+		Categoria categoria = categoriaRepository.findByNome(novoLivro.getNomeCategoria().toUpperCase());
+		Autor autor = autorRepository.findByNome(novoLivro.getNomeAutor().toUpperCase());
 
 	
 		Livro livro = novoLivro.toLivro(autor, categoria);

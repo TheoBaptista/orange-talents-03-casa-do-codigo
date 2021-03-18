@@ -36,7 +36,7 @@ public class Livro {
 			@NotNull @Min(20) BigDecimal preco, @NotNull @Min(100) Integer numeroDePaginas, @NotBlank String isbn,
 			@Future @NotNull @Future LocalDate dataDePublicacao2, @NotNull Categoria categoriaDoLivro,
 			@NotNull Autor autorDoLivro) {
-		this.titulo = titulo;
+		this.titulo = titulo.toUpperCase();
 		this.resumo = resumo;
 		this.sumario = sumario;
 		this.preco = preco;

@@ -8,10 +8,10 @@ public class AutorResponse {
 	private String email;
 	private String descricao;
 	
-	public AutorResponse(String nome, String email, String descricao) {
-		this.nome = nome;
-		this.email = email;
-		this.descricao = descricao;
+	public AutorResponse(Autor autor) {
+		this.nome = autor.getNome();
+		this.email = autor.getEmail();
+		this.descricao = autor.getDescricao();
 	}
 
 	public String getNome() {
@@ -27,7 +27,7 @@ public class AutorResponse {
 	}
 
 	public static AutorResponse buildAutor(Autor novoAutor) {
-		return new AutorResponse(novoAutor.getNome(),novoAutor.getEmail(),novoAutor.getDescricao());
+		return new AutorResponse(novoAutor);
 	}
 	
 	

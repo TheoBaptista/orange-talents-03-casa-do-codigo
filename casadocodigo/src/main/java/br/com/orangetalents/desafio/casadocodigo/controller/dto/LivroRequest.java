@@ -21,7 +21,7 @@ import br.com.orangetalents.desafio.casadocodigo.domain.Livro;
 
 public class LivroRequest {
 
-	private @NotBlank @UniqueValueConstraint(nomeDoCampo = "titulo", classeDeComparacao = Livro.class) String titulo;
+	private @NotBlank @UniqueValueConstraint(nomeDoCampo = "titulo", classeDeComparacao = Livro.class,message = "Já existe um '{nomeDoCampo}' com o mesmo nome cadastrado!") String titulo;
 	private @NotBlank @Size(max = 500) String resumo;
 	private String sumario;
 	private @NotNull @Min(value = 20) BigDecimal preco;

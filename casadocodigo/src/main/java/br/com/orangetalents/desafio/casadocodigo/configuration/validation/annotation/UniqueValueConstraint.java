@@ -20,7 +20,7 @@ public @interface UniqueValueConstraint {
 	String nomeDoCampo();	
 	
 	//tem que colocar a mensagem parameter caso contrario tomarei exception
-	String message() default "Já existe o valor parecido no nosso sistema"; // colocoquei generica mas tenho que mudar para uma melhor
+	String message() default "Já existe esse {nomeDoCampo} cadastrado no nosso sistema"; // colocoquei generica mas tenho que mudar para uma melhor
 	
 	// tambem tem que ter o groups paramater caso contrario tomarei outra exception
 	Class<?>[] groups() default { };

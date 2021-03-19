@@ -22,6 +22,7 @@ public class OnlyCreateIfExistValidator implements ConstraintValidator<OnlyCreat
 	public void initialize(OnlyCreateIfExist constraintAnnotation) {
 		classeDeComparacao = constraintAnnotation.classeDeComparacao();
 		nomeDoCampo = constraintAnnotation.nomeDoCampo();
+		
 	}
 	
 	@Override

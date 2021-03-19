@@ -1,8 +1,11 @@
 package br.com.orangetalents.desafio.casadocodigo.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +47,11 @@ public class LivroController {
 		livroRepository.save(livro);
 		
 		return ResponseEntity.ok(LivroResponse.build(livro));
+	}
+	
+	@GetMapping
+	public List<LivroResponse> listaLivros(){
+		return LivroResponse.build(livroRepository.findAll());
 	}
 
 }

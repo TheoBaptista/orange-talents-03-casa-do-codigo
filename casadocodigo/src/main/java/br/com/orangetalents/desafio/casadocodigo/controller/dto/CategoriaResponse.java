@@ -6,8 +6,8 @@ public class CategoriaResponse {
 
 	private String nome;
 
-	public CategoriaResponse(String nome) {
-		this.nome = nome;
+	public CategoriaResponse(Categoria categoria) {
+		this.nome = categoria.getNome();
 	}
 
 	public String getNome() {
@@ -15,7 +15,7 @@ public class CategoriaResponse {
 	}
 
 	public static CategoriaResponse build(Categoria categoria) {
-		return new CategoriaResponse(categoria.getNome());
+		return new CategoriaResponse(categoria);
 	}
 		
 	

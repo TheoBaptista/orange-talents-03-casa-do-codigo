@@ -96,8 +96,8 @@ public class Livro {
 		return isbn;
 	}
 
-
-	
-	
+	public Long getId() {
+		return id;
+	}		
 
 }

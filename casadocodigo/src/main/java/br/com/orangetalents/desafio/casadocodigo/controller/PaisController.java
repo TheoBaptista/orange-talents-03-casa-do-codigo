@@ -26,7 +26,7 @@ public class PaisController {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity<?> cadastraPais(@RequestBody @Valid PaisRequest paisRequest){
+	public ResponseEntity<PaisResponse> cadastraPais(@RequestBody @Valid PaisRequest paisRequest){
 		
 		Pais pais = repository.save(paisRequest.toPais());
 		

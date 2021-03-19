@@ -31,7 +31,7 @@ public class EstadoController {
 	
 	@PostMapping
 	@Transactional
-	public ResponseEntity<?> cadastraEstado(@RequestBody @Valid EstadoRequest novoEstado){
+	public ResponseEntity<EstadoResponse> cadastraEstado(@RequestBody @Valid EstadoRequest novoEstado){
 		
 		Pais pais = paisRepository.findByNome(novoEstado.getNomePais().toUpperCase());
 		Estado estado = estadoRepository.save(novoEstado.toEstado(pais));

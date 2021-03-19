@@ -28,7 +28,7 @@ public class CategoriaController {
 	
 	@PostMapping
 	@Transactional
-	public ResponseEntity<?> cadastraCategoria(@RequestBody @Valid CategoriaRequest formCategoria){
+	public ResponseEntity<CategoriaResponse> cadastraCategoria(@RequestBody @Valid CategoriaRequest formCategoria){
 		Categoria categoria = repository.save(formCategoria.toCategoria());
 		return ResponseEntity.ok(CategoriaResponse.build(categoria));
 		

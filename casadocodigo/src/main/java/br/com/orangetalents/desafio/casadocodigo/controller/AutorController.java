@@ -20,28 +20,14 @@ public class AutorController {
 
 	private final AutorRepository repository;
 	
-	/*
-	 * Parte que era necessária antes de fazer a anotação de @constraint 
-	 * 
-	 * private final ProibeEmailDuplicadoAutorValidator proibeEmailDuplicadoAutorValidator; //validadores costumizados do spring
-	
-	@InitBinder // utilizado sempre antes de executar os metodos do controller para executar configurações adicionais
-	public void init(WebDataBinder binder) {		
-		binder.addValidators(proibeEmailDuplicadoAutorValidator);
-	}
-	*/
-	
 	public AutorController(AutorRepository repository) {
 		this.repository = repository;
-		//this.proibeEmailDuplicadoAutorValidator = proibeEmailDuplicadoAutorValidator ;
 	}
 
 	@PostMapping
 	@Transactional
 	public ResponseEntity<AutorResponse> cadastraAutor(@Valid @RequestBody AutorRequest autorRequest){	
-		
-		System.out.println(autorRequest.getEmail()+ autorRequest.getNome() + autorRequest.getDescricao());
-		
+				
 		Autor novoAutor = repository.save(autorRequest.toAutor());
 		return ResponseEntity.ok(AutorResponse.buildAutor(novoAutor));			
 	}

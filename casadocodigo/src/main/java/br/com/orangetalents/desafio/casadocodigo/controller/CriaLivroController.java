@@ -28,7 +28,6 @@ public class CriaLivroController {
 
 	public CriaLivroController(LivroRepository livroRepository, AutorRepository autorRepository,
 			CategoriaRepository categoriaRepository) {
-		super();
 		this.livroRepository = livroRepository;
 		this.autorRepository = autorRepository;
 		this.categoriaRepository = categoriaRepository;

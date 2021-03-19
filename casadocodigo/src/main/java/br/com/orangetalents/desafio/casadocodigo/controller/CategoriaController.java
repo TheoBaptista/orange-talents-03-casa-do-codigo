@@ -31,5 +31,6 @@ public class CategoriaController {
 	public ResponseEntity<?> cadastraCategoria(@RequestBody @Valid CategoriaRequest formCategoria){
 		Categoria categoria = repository.save(formCategoria.toCategoria());
 		return ResponseEntity.ok(CategoriaResponse.build(categoria));
-				}	
+		
+	}	
 }

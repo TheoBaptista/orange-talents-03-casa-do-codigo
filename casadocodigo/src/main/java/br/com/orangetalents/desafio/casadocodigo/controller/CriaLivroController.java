@@ -1,5 +1,6 @@
 package br.com.orangetalents.desafio.casadocodigo.controller;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,7 @@ public class CriaLivroController {
 	}
 	
 	@PostMapping
+	@Transactional
 	public ResponseEntity<LivroResponse> cadastraLivro(@Valid @RequestBody LivroRequest novoLivro) {
 
 		Categoria categoria = categoriaRepository.findByNome(novoLivro.getNomeCategoria().toUpperCase());

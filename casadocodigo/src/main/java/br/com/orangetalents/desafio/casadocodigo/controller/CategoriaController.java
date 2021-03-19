@@ -1,5 +1,6 @@
 package br.com.orangetalents.desafio.casadocodigo.controller;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,7 @@ public class CategoriaController {
 	}
 	
 	@PostMapping
+	@Transactional
 	public ResponseEntity<?> cadastraCategoria(@RequestBody @Valid CategoriaRequest formCategoria){
 		Categoria categoria = repository.save(formCategoria.toCategoria());
 		return ResponseEntity.ok(CategoriaResponse.build(categoria));

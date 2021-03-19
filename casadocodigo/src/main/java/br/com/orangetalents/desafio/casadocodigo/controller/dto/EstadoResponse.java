@@ -32,7 +32,7 @@ public class EstadoResponse {
 		return idPais;
 	}
 	
-	public EstadoResponse build(Estado estado) {
+	public static EstadoResponse build(Estado estado) {
 		return new EstadoResponse(estado.getNome(), estado.getId(), estado.getPais().getNome(), estado.getPais().getId());
 	}
 	

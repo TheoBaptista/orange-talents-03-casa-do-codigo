@@ -20,5 +20,13 @@ public class EstadoRequest {
 	public String getNome() {
 		return nome;
 	}	
+			
+	public String getNomePais() {
+		return nomePais;
+	}
+
+	public Estado toEstado(Pais pais) {
+		return new Estado(this.nome,pais);
+	}
 	
 }

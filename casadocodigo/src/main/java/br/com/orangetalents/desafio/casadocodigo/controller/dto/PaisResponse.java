@@ -26,9 +26,7 @@ public class PaisResponse {
 		return id;
 	}
 
-
-
-	public PaisResponse build(Pais pais) {
+	public static PaisResponse build(Pais pais) {
 		return new PaisResponse(pais.getNome(),pais.getId());
 	}	
 }

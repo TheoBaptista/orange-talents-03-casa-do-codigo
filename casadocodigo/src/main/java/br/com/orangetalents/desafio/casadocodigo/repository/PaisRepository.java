@@ -6,4 +6,6 @@ import br.com.orangetalents.desafio.casadocodigo.domain.Pais;
 
 public interface PaisRepository extends JpaRepository<Pais, Long> {
 
+	Pais findByNome(String nome);
+
 }

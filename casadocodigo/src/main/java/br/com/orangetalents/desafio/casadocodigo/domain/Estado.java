@@ -5,18 +5,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Estado {
 
 	private @Id @GeneratedValue Long id;
 	private @NotBlank String nome;	
-	private @ManyToOne @NotBlank Pais pais;
+	private @ManyToOne @NotNull Pais pais;
 	
-	public Estado(Long id, String nome, Pais pais) {
-		this.id = id;
-		this.nome = nome;
+	public Estado(@NotBlank String nome,@NotBlank Pais pais) {
+		this.nome = nome.toUpperCase();
 		this.pais = pais;
+		System.out.println(pais);
 	}
 	
 	public Boolean jaPertenceAoPais(Pais pais) {

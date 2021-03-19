@@ -14,9 +14,8 @@ public class Pais {
 	private @NotBlank String nome;
 	
 		
-	public Pais(Long id, @NotBlank String nome) {
-		this.id = id;
-		this.nome = nome;
+	public Pais(@NotBlank String nome) {
+		this.nome = nome.toUpperCase();
 	}
 
 	@Deprecated

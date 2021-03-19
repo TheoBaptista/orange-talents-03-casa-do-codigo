@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ValidatorRepository {
 
-	@PersistenceContext
+	@PersistenceContext // necessario para ser injetado na classe
 	private final EntityManager em;
 
 	public ValidatorRepository(EntityManager em) {

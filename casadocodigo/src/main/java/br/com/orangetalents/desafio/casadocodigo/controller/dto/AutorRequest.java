@@ -14,10 +14,7 @@ public class AutorRequest {
 	private @NotBlank @Email @UniqueValueConstraint(classeDeComparacao = Autor.class,nomeDoCampo = "email") String email;	
 	private @NotBlank @Size(max = 400) String descricao;	
 
-	@Deprecated
-	public AutorRequest() {
-	}
-	
+		
 	public AutorRequest(@NotBlank String nome,@Email @NotBlank String email,@NotBlank @Size(max = 400) String descricao) {
 		this.nome = nome;
 		this.email = email;

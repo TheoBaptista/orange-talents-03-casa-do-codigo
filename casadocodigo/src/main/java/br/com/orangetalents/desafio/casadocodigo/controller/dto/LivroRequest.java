@@ -31,10 +31,7 @@ public class LivroRequest {
 	private @NotBlank @OnlyCreateIfExist(classeDeComparacao = Categoria.class,nomeDoCampo = "nome") String nomeCategoria; 
 	private @NotBlank @OnlyCreateIfExist(classeDeComparacao = Autor.class,nomeDoCampo = "nome") String nomeAutor;
 
-	@Deprecated
-	public LivroRequest() {
-	}
-	
+		
 	public LivroRequest(@NotBlank String titulo, @NotBlank @Max(500) String resumo, String sumario,
 			@NotNull @Min(20) BigDecimal preco, @NotNull @Min(100) Integer numeroDePaginas, @NotBlank String isbn, @NotBlank String nomeCategoria,
 			@NotBlank String nomeAutor) {

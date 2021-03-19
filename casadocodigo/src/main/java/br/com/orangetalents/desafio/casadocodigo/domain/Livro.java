@@ -98,6 +98,22 @@ public class Livro {
 
 	public Long getId() {
 		return id;
-	}		
+	}
+
+	public String getSumario() {
+		return sumario;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public int getNumeroDePaginas() {
+		return numeroDePaginas;
+	}
+
+	public Autor getAutorDoLivro() {
+		return autorDoLivro;
+	}	
 
 }

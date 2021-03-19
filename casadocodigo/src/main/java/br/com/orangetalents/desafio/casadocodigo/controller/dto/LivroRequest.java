@@ -46,7 +46,7 @@ public class LivroRequest {
 	}
 	
 	
-
+	// tive que manter pois o jackson nao consegue desserializar
 	public void setDataDePublicacao(LocalDate dataDePublicacao) {
 		this.dataDePublicacao = dataDePublicacao;
 	}

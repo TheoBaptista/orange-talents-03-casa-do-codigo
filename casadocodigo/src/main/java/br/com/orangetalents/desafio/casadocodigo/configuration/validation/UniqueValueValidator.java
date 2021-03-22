@@ -1,11 +1,12 @@
 package br.com.orangetalents.desafio.casadocodigo.configuration.validation;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import br.com.orangetalents.desafio.casadocodigo.configuration.validation.annotation.UniqueValueConstraint;
-import br.com.orangetalents.desafio.casadocodigo.repository.ValidatorRepository;
 
 public class UniqueValueValidator implements ConstraintValidator<UniqueValueConstraint, Object > {
 
@@ -33,9 +34,12 @@ public class UniqueValueValidator implements ConstraintValidator<UniqueValueCons
 		
 //		String query = "SELECT 1 FROM "+classeDeComparacao.getName()+" WHERE "+nomeDoCampo+" =:pvalue";  
 //		List<?> resultList = em.createQuery(query).setParameter("pvalue", value).getResultList();
-		// ver se posso encapsular essa parte!!!		
+		// ver se posso encapsular essa parte!!!
 		
-		return ValidatorRepository.build(em).existEquals(nomeDoCampo, classeDeComparacao.getName() , value.toString().toUpperCase()); // vereficar se isso esta correto ou eh um verdadeiro improvisso!
+		
+		String query = "SELECT 1 FROM "+classeDeComparacao.getName()+" WHERE "+nomeDoCampo+" =:pvalue";  
+		List<?> resultList = em.createQuery(query).setParameter("pvalue", value.toString().toUpperCase()).getResultList();		
+		return resultList.isEmpty();		
 	}
 
 	

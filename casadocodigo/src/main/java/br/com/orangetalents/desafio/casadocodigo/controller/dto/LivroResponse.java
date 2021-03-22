@@ -36,7 +36,7 @@ public class LivroResponse {
 	}
 
 	public static List<LivroResponse> build(List<Livro> livros) {
-		return livros.stream().map(livro -> new LivroResponse(livro))
+		return livros.stream().map(LivroResponse::new)
 				.collect(Collectors.toList());
 	}
 

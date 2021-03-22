@@ -1,9 +1,14 @@
 package br.com.orangetalents.desafio.casadocodigo.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -12,10 +17,13 @@ public class Pais {
 	
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id; 
 	private @NotBlank String nome;
+	private @OneToMany(mappedBy = "pais", fetch = FetchType.EAGER) List<Estado> estados = new ArrayList<>();
+	
 	
 		
 	public Pais(@NotBlank String nome) {
 		this.nome = nome.toUpperCase();
+		
 	}
 
 	@Deprecated
@@ -28,6 +36,10 @@ public class Pais {
 
 	public String getNome() {
 		return nome;
+	}	
+
+	public List<Estado> getEstados() {
+		return estados;
 	}
 
 	@Override
@@ -65,5 +77,6 @@ public class Pais {
 			return false;
 		return true;
 	}	
+	
 	
 }

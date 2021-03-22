@@ -1,11 +1,12 @@
 package br.com.orangetalents.desafio.casadocodigo.configuration.validation;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import br.com.orangetalents.desafio.casadocodigo.configuration.validation.annotation.OnlyCreateIfExist;
-import br.com.orangetalents.desafio.casadocodigo.repository.ValidatorRepository;
 
 public class OnlyCreateIfExistValidator implements ConstraintValidator<OnlyCreateIfExist, Object> {
 
@@ -30,7 +31,11 @@ public class OnlyCreateIfExistValidator implements ConstraintValidator<OnlyCreat
 		if(value == null) {
 			return true;
 		}
-		return !ValidatorRepository.build(em).existEquals(nomeDoCampo, classeDeComparacao.getName() , value.toString().toUpperCase());
+		
+		String query = "SELECT 1 FROM "+ classeDeComparacao.getName() +" WHERE "+nomeDoCampo +" =:pvalue";  
+		List<?> resultList = em.createQuery(query).setParameter("pvalue", value.toString().toUpperCase()).getResultList();		
+		return !resultList.isEmpty();	
+		
 	}
 
 }

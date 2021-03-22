@@ -17,7 +17,6 @@ public class Estado {
 	public Estado(@NotBlank String nome,@NotBlank Pais pais) {
 		this.nome = nome.toUpperCase();
 		this.pais = pais;
-		System.out.println(pais);
 	}
 	
 	public Boolean jaPertenceAoPais(Pais pais) {
@@ -30,7 +29,7 @@ public class Estado {
 
 	@Override
 	public String toString() {
-		return "Estado [nome=" + nome + "]";
+		return nome;
 	}
 	
 	

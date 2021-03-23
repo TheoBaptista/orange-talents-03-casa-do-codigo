@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +16,7 @@ public class Pais {
 	
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id; 
 	private @NotBlank String nome;
-	private @OneToMany(mappedBy = "pais", fetch = FetchType.EAGER) List<Estado> estados = new ArrayList<>();
+	private @OneToMany(mappedBy = "pais") List<Estado> estados = new ArrayList<>();
 	
 	
 		

@@ -43,7 +43,7 @@ public class ClienteResponse {
 	}
 	
 	public static ClienteResponse build(Cliente cliente) {
-		return new ClienteResponse(cliente.getNome(), cliente.getEmail(), cliente.getDocumento(), cliente.getEndereco());
+		return new ClienteResponse(cliente.getNome(), cliente.getEmail(), cliente.getDocumento(), cliente.getEndereco().getLogradouro());
 	}
  
 	

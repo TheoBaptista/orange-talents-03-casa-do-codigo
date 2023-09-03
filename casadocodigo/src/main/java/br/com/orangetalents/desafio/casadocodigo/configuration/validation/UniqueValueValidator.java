@@ -30,13 +30,7 @@ public class UniqueValueValidator implements ConstraintValidator<UniqueValueCons
 		if(value == null) {
 			return true;
 		}
-		//String letraInicialDaclasse = classeDeComparacao.toString().substring(0, 1).toLowerCase();// o retorno eh um fqn da classe. ate é possivel mas sem sentido		
-		
-//		String query = "SELECT 1 FROM "+classeDeComparacao.getName()+" WHERE "+nomeDoCampo+" =:pvalue";  
-//		List<?> resultList = em.createQuery(query).setParameter("pvalue", value).getResultList();
-		// ver se posso encapsular essa parte!!!
-		
-		
+
 		String query = "SELECT 1 FROM "+classeDeComparacao.getName()+" WHERE "+nomeDoCampo+" =:pvalue";  
 		List<?> resultList = em.createQuery(query).setParameter("pvalue", value.toString().toUpperCase()).getResultList();		
 		return resultList.isEmpty();		

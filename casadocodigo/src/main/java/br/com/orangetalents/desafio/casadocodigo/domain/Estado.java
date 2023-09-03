@@ -1,5 +1,7 @@
 package br.com.orangetalents.desafio.casadocodigo.domain;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@NoArgsConstructor
 public class Estado {
 
 	private @Id @GeneratedValue Long id;
@@ -21,10 +24,6 @@ public class Estado {
 	
 	public Boolean jaPertenceAoPais(Pais pais) {
 		 return this.pais.equals(pais);
-	}
-	
-	@Deprecated
-	public Estado() {
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package br.com.orangetalents.desafio.casadocodigo.domain;
 
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
+@NoArgsConstructor
 public class Pais {
 
 	
@@ -23,10 +26,6 @@ public class Pais {
 	public Pais(@NotBlank String nome) {
 		this.nome = nome.toUpperCase();
 		
-	}
-
-	@Deprecated
-	public Pais() {
 	}
 
 	public Long getId() {

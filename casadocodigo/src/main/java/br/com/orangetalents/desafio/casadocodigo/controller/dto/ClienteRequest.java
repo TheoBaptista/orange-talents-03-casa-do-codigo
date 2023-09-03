@@ -3,6 +3,7 @@ package br.com.orangetalents.desafio.casadocodigo.controller.dto;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import br.com.orangetalents.desafio.casadocodigo.domain.Endereco;
 import org.hibernate.validator.internal.constraintvalidators.hv.br.CNPJValidator;
 import org.hibernate.validator.internal.constraintvalidators.hv.br.CPFValidator;
 
@@ -102,6 +103,6 @@ public class ClienteRequest {
 	}
 	
 	public Cliente toCliente(Pais pais) {
-		return new Cliente(this.email, this.nome,this.sobrenome,this.documento,this.endereco,this.complemento,this.cidade,pais,this.telefone,this.cep);
+		return new Cliente(this.email, this.nome,this.sobrenome,this.documento,this.telefone,new Endereco(this.endereco,this.complemento,this.cidade,this.cep,null,pais));
 	}	
 }

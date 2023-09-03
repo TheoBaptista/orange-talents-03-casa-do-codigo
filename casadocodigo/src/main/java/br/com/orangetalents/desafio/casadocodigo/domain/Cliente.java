@@ -1,102 +1,51 @@
 package br.com.orangetalents.desafio.casadocodigo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Getter
+@EqualsAndHashCode
+@NoArgsConstructor
 public class Cliente {
 
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
-	private @Email @NotBlank String email;
-	private @NotBlank String nome;
-	private @NotBlank String sobrenome;
-	private @NotBlank String documento;
-	private @NotBlank String endereco;
-	private @NotBlank String complemento;
-	private @NotBlank String cidade;
-	private @NotNull @ManyToOne Pais pais;
-	private @ManyToOne Estado estado;
-	private @NotBlank String telefone;
-	private @NotBlank String cep;
-	
-	@Deprecated
-	public Cliente() {
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public Cliente(@Email @NotBlank String email, @NotBlank String nome, @NotBlank String sobrenome,
-			@NotBlank String documento, @NotBlank String endereco, @NotBlank String complemento,
-			@NotBlank String cidade, @NotNull Pais pais, @NotBlank String telefone,
-			@NotBlank String cep) {
-		this.email = email.toUpperCase();
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.documento = documento;
-		this.endereco = endereco;
-		this.complemento = complemento;
-		this.cidade = cidade;
-		this.pais = pais;		
-		this.telefone = telefone;
-		this.cep = cep;
-	}
+    @Email
+    @NotBlank
+    private String email;
 
-	public String getEmail() {
-		return email;
-	}
+    @NotBlank
+    private String nome;
 
-	public String getNome() {
-		return nome;
-	}
+    @NotBlank
+    private String sobrenome;
 
-	public String getDocumento() {
-		return documento;
-	}
+    @NotBlank
+    private String documento;
 
-	public String getEndereco() {
-		return endereco;
-	}
+    @NotBlank
+    private String telefone;
 
-	public String getComplemento() {
-		return complemento;
-	}
+    @NotNull
+    @Embedded
+    private Endereco endereco;
 
-	public Long getId() {
-		return id;
-	}
+    public Cliente(String email, String nome, String sobrenome, String documento, String telefone, Endereco endereco) {
+        this.email = email;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.documento = documento;
+        this.telefone = telefone;
+        this.endereco = endereco;
+    }
 
-	public String getSobrenome() {
-		return sobrenome;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public Pais getPais() {
-		return pais;
-	}
-
-	public Estado getEstado() {
-		return estado;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}	
-	
-	
-	
 }

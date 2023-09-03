@@ -1,5 +1,7 @@
 package br.com.orangetalents.desafio.casadocodigo.domain;
 
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -12,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
+@NoArgsConstructor
 public class Autor {
 
 	
@@ -20,11 +23,7 @@ public class Autor {
 	private @Email @NotBlank String email;
 	private @NotBlank @Size(max = 400) String descricao;
 	private @Column(name = "data_do_registro") LocalDateTime dataDoRegistro = LocalDateTime.now() ;
-	
-	@Deprecated
-	public Autor() {
-	}
-	
+
 	public Autor(@NotBlank String nome, @Email @NotBlank String email, @NotBlank @Size(max = 400) String descricao) {
 		this.nome = nome.toUpperCase();
 		this.email = email.toUpperCase();

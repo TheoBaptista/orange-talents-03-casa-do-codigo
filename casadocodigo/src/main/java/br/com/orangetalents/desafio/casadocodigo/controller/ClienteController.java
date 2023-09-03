@@ -61,7 +61,7 @@ public class ClienteController {
 		
 		if(novoCliente.getNomeEstado() != null) {
 		 Estado estado = estadoRepo.findByNome(novoCliente.getNomeEstado().toUpperCase());
-		 cliente.setEstado(estado);		 
+		 cliente.getEndereco().setEstado(estado);
 		}
 		
 		repository.save(cliente);

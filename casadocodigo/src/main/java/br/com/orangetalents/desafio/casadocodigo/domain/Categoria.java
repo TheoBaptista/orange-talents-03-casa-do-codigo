@@ -1,5 +1,7 @@
 package br.com.orangetalents.desafio.casadocodigo.domain;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,16 +9,13 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
+@NoArgsConstructor
 public class Categoria {
 	
 	private @Id	@GeneratedValue(strategy = GenerationType.IDENTITY) Long id;	
 	private @NotBlank String nome;
 
-	@Deprecated
-	public Categoria() {
-	}
-	
-	public Categoria(@NotBlank String nome) {		
+	public Categoria(@NotBlank String nome) {
 		this.nome = nome.toUpperCase();
 	}
 	public String getNome() {

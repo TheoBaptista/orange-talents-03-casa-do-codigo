@@ -1,5 +1,7 @@
 package br.com.orangetalents.desafio.casadocodigo.domain;
 
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -15,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+@NoArgsConstructor
 public class Livro {
 
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
@@ -28,10 +31,6 @@ public class Livro {
 	private @NotNull @ManyToOne Categoria categoriaDoLivro;
 	private @NotNull @ManyToOne Autor autorDoLivro;
 
-	@Deprecated
-	public Livro() {
-	}
-	
 	public Livro(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, String sumario,
 			@NotNull @Min(20) BigDecimal preco, @NotNull @Min(100) Integer numeroDePaginas, @NotBlank String isbn,
 			@Future @NotNull @Future LocalDate dataDePublicacao2, @NotNull Categoria categoriaDoLivro,
